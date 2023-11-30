@@ -106,27 +106,74 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya */
+enbuyuk=0;
+enkucuk=sayilar[0];
+ucetambolunenler=[];
+besyuzdenkucuksayilar=[];
+siralisayilar=[];
+tekraredensayilar=[];
+let tekrarBilgileri={};
+
+for (let i=0;i<sayilar.length;i++){
+  if(enbuyuk<sayilar[i]){
+    enbuyuk=sayilar[i];
+  }
+  if(sayilar[i]<enkucuk){
+    sayilar[i]=enkucuk;
+  }
+}
+
+
+console.log('En küçük sayı:'+enkucuk);
+
+console.log('En Büyük Sayi: ' +enbuyuk);
 
 // 3b çözümü:
 
-/* kodlar buraya */
+sayilar.forEach(sayi=>{
+  if(sayi%3===0){
+    ucetambolunenler.push(sayi);
+  }
+})
+console.log('Üçe tam bölünenler:'+ucetambolunenler);
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami=ucetambolunenler.reduce((a,b)=>a+b,0);
+
+console.log('Üçe tam bölünenlerin toplamı:'+ucebolunenlerintoplami);
 
 // 3d çözümü
 
-/* kodlar buraya */
+const besyuzKucuk=sayilar.filter(sayi=>sayi<500);
+besyuzdenkucuksayilar.push(besyuzKucuk);
+
+console.log("500'den küçük sayılar:"+besyuzdenkucuksayilar);
 
 // 3e çözümü
 
-/* kodlar buraya */
+const sira=besyuzdenkucuksayilar.sort((a,b)=>a-b);
+siralisayilar.push(sira);
+console.log("500'den küçük sıralı sayılar:"+siralisayilar);
 
 // 3f çözümü
 
-/* kodlar buraya */
+for(let i=0;i<sayilar.length;i++){
+  let sayi=sayilar[i];
+  if(sayi===undefined){
+    tekrarBilgileri[sayi]=1;
+  }else{
+    tekrarBilgileri[sayi] =tekrarBilgileri[sayi] +1;
+  }
+}
+for (const sayi in tekrarBilgileri){
+  if(tekrarBilgileri[sayi]>1){
+    let tekrarString=`${sayi} sayisi ${tekrarBilgileri[sayi]} kere tekrar edilmiştir`;
+    tekraredensayilar.push(tekrarString);
+  }
+}
+console.log(tekraredensayilar);
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
